@@ -4,19 +4,31 @@
       <h1 class="text-center text-xl mb-2">Character Generation</h1>
       <div id="name" class="block text-center">
       <label for="characterName">Character Name Entry</label>
-      <input type="text" v-model="characterName" id="characterName" placeholder="Enter Name Here" class="text-center border-b-2 border-red-700 px-4 py-2">
+      <input type="text" v-model="character.name" id="characterName" placeholder="Enter Name Here" class="text-center border-b-2 border-red-700 px-4 py-2">
       <button type="button" v-on:click="generateName">Generate Name</button>
       </div>
       <div id="race" class="block">
         <h2 class="text-center border-b-2 border-red-700">Select Race</h2>
         <ul :key="index" v-for="(race, index) in races">
-          <li><input class="form-radio m-2" type="radio" name="raceSelection" v-bind:value="race">{{race}}</li>
+          <li><input class="form-radio m-2" type="radio" v-model=character.homeland name="raceSelection" v-bind:value="race">{{race}}</li>
         </ul>
       </div>
       <div id="homeland" class="block">
         <h2 class="text-center border-b-2 border-red-700">Select Homeland</h2>
         <ul :key="index" v-for="(land, index) in homeland">
-          <li><input class="m-2 form-radio" type="radio" name="homelandSelection" v-bind:value="land">{{land}}</li>
+          <li><input class="m-2 form-radio" type="radio" name="homelandSelection" v-model=character.homeland v-bind:value="land">{{land}}</li>
+        </ul>
+      </div>
+      <div id="familialFate" class="block">
+        <h2>Familial Fate</h2>
+        <ul :key="index" v-for="(fate, index) in nilfgarrdianStatus" v-if="character.homeland === 'Heart of Nilfgaard' || character.homeland === 'Nilfgaardian Vassal'">
+          <li><input class="m-2 form-radio" type="radio" name="familial fate" v-model="character.familyStatus">{{fate}}</li>
+        </ul>
+        <ul :key="index" v-for="(fate, index) in northernStatus" v-if="character.homeland === 'Northern Kingdoms'">
+          <li><input class="m-2 form-radio" type="radio" name="familial fate" v-model="character.familyStatus">{{fate}}</li>
+        </ul>
+        <ul :key="index" v-for="(fate, index) in elderlandStatus" v-if="character.homeland === 'Dol Blathanna' || character.homeland === 'Mahakam'">
+          <li><input class="m-2 form-radio" type="radio" name="familial fate" v-model="character.familyStatus">{{fate}}</li>
         </ul>
       </div>
     </div>
@@ -32,9 +44,16 @@ export default {
   },
   data : function () {
       return{
+        character :{
+          name: '',
+          race: '',
+          homeland: '',
+          familyStatus : '',
+
+        },
           characterName: '',
           races: ['Witcher', 'Elf', 'Human', 'Dwarf'],
-          homeland: ['Northen Kingdoms', 'Heart of Nilfgaard', 'Nilfgaarddian Vassal', 'Dol Blathanna', 'Mahakam'],
+          homeland: ['Northern Kingdoms', 'Heart of Nilfgaard', 'Nilfgaardian Vassal', 'Dol Blathanna', 'Mahakam'],
           northernStatus: [
               'Your family was scattered to the\n' +
               'winds by the wars and you have\n' +
@@ -188,5 +207,8 @@ export default {
 <style>
   button{
     @apply bg-red-700 px-4 py-2 rounded
+  }
+  h2{
+    @apply text-center border-b-2 border-red-700 text-xl
   }
 </style>
