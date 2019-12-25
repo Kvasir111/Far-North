@@ -7,6 +7,11 @@
         <input class="text-center border-b-2 border-red-700 px-4 py-2" id="characterName" placeholder="Enter Name Here" type="text" v-model="character.name">
         <button type="button" v-on:click="generateName">Generate Name</button>
       </div>
+      <div class="block">
+        <ul :key="index" v-for="(benis, index) in genders">
+          <li><input type="radio" class="m-2 form-radio" name="gender" v-model="character.gender">{{benis}}</li>
+        </ul>
+      </div>
       <div class="block" id="race">
         <h2 class="text-center border-b-2 border-red-700">Select Race</h2>
         <ul :key="index" v-for="(race, index) in races">
@@ -55,17 +60,22 @@
     },
     data : function () {
       return{
+        //top level character object, this is eventually what will get exported to an object in firebase
         character :{
           name: '',
+          gender: '',
           race: '',
           homeland: '',
           familyStatus : '',
           parentalStatus: '',
 
         },
-        characterName: '',
+        //the 4 races that are availible
         races: ['Witcher', 'Elf', 'Human', 'Dwarf'],
+        genders: ['Male', 'Female'],
         homeland: ['Northern Kingdoms', 'Heart of Nilfgaard', 'Nilfgaardian Vassal', 'Dol Blathanna', 'Mahakam'],
+
+        //Entire Family Statuses
         northernStatus: [
           'Your family was scattered to the\n' +
           'winds by the wars and you have\n' +
@@ -205,6 +215,7 @@
           'others of the elder races and\n' +
           'has made living in the elderland difficult.',
         ],
+        //Individual Parental Fates
         northernParentalFate : [
           {roll: 1, text: 'One or more of your parents\n' +
               'were killed in the Northern\n' +
@@ -295,7 +306,50 @@
               'know where they are now, but\n' +
               'they’re serving the Emperor.'}
         ],
-        elderlandParentalFate : [],
+        elderlandParentalFate : [
+          {roll: 1, text: 'One or more of your parents were accused of being\n' +
+              'Scoia’tael. Te people around\n' +
+              'you give your parents sidelong\n' +
+              'glances.'},
+          {roll: 2, text: 'One or more of your parents\n' +
+              'turned on your own people and\n' +
+              'sold out the elder races to the\n' +
+              'humans. Your parents are unwelcome in your homeland.'},
+          {roll: 3, text: 'One or more of your parents\n' +
+              'killed themselves out of despair.\n' +
+              'With no hope of regaining the\n' +
+              'glory of the past, they gave up\n' +
+              'and ended it'},
+          {roll: 4, text: 'While traveling, one or more of\n' +
+              'your parents fell prey to human\n' +
+              'racism. Tey died in a pogrom\n' +
+              'and their bodies were displayed\n' +
+              'on pikes.'},
+          {roll: 5, text: 'One or more of your parents\n' +
+              'have become obsessed with\n' +
+              'regaining the former glory\n' +
+              'of their race. They sacrificed\n' +
+              'everything for this cause'},
+          {roll: 6, text: 'One or more of your parents\n' +
+              'were exiled from your\n' +
+              'homeland. There are many possible reasons, from crime to\n' +
+              'dissenting opinions.'},
+          {roll: 7, text: 'One or more of your parents\n' +
+              'were cursed. You can decide\n' +
+              'what this curse is or, the Game\n' +
+              'Master can decide.'},
+          {roll: 8, text: 'Your parents gave you to another family so that you could\n' +
+              'survive, because they couldn’t\n' +
+              'care for you'},
+          {roll : 9, text: 'One or more of your parents\n' +
+              'joined the Scoia’tael in an attempt to get revenge on the humans who they see as ruining\n' +
+              'their lives.'},
+          {roll: 10, text: 'One or more of your parents\n' +
+              'died in an ‘accident’. Most likely\n' +
+              'they made a powerful enemy\n' +
+              'that finally found a way to get\n' +
+              'rid of them.'}
+        ],
 
       }
     },
