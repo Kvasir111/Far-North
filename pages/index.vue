@@ -248,7 +248,10 @@
               'lord or his son.'}
         ],
         nilfgarrdianParentalFate: [
-          {roll: 1, text: }
+          {roll: 1, text: 'Your father died in one of the\n' +
+              'Northern Wars. He may have already been in the military or he\n' +
+              'may have been conscripted into\n' +
+              'service during that war.'}
         ],
 
       }
