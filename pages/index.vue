@@ -20,16 +20,20 @@
       </div>
       <div class="block" id="homeland">
         <h2 class="text-center border-b-2 border-red-700">Select Homeland</h2>
-        <ul :key="index" v-for="(land, index) in homeland">
+        <ul :key="index" v-for="(land, index) in region">
           <li><input class="m-2 form-radio" name="homelandSelection" type="radio" v-bind:value="land" v-model=character.homeland>{{land}}</li>
         </ul>
       </div>
       <div class="block" id="family and parents roll">
-        <h2>Family Fate roll</h2>
-        <button type="button">Roll for Familial Fate</button>
-        <p id="randomNumberOutput"></p>
+        <h2>Family or Parental Fate Selection</h2>
+        <label for="familyFateSelection">Did something Happen to your Family, or individual Parents?</label>
+        <select id="familyFateSelection" v-model="character.fate">
+          <option disabled>Select Family Fate</option>
+          <option>Family</option>
+          <option>Individual Parents</option>
+        </select>
       </div>
-      <div class="block" id="familialFate">
+      <div class="block" id="familialFate" v-if="character.fate === 'Family'">
         <h2>Familial Fate</h2>
         <ul :key="index" v-for="(fate, index) in nilfgarrdianStatus" v-if="character.homeland === 'Heart of Nilfgaard' || character.homeland === 'Nilfgaardian Vassal'">
           <li><input class="m-2 form-radio" name="familial fate" type="radio" v-model="character.familyStatus">{{fate}}</li>
@@ -41,7 +45,7 @@
           <li><input class="m-2 form-radio" name="familial fate" type="radio" v-model="character.familyStatus">{{fate}}</li>
         </ul>
       </div>
-      <div class="block" id="parentalFate">
+      <div class="block" id="parentalFate" v-if="character.fate === 'Individual Parents'">
         <h2>Parental Fate</h2>
         <ul id="northernParentalFate" :key="index" v-for="(fate, index) in northernParentalFate" v-if="character.homeland === 'Northern Kingdoms'">
           <li><input type="radio" class="m-2 form-radio"  name="parentalFate" v-model="character.parentalStatus">{{fate.text}}</li>
@@ -69,18 +73,41 @@
       return{
         //top level character object, this is eventually what will get exported to an object in firebase
         character :{
+          //basic player information
           name: '',
           gender: '',
           race: '',
           homeland: '',
-          familyStatus : '',
-          parentalStatus: '',
 
+          //Essentially a boolean for the family or individual parents toggle
+          fate: '',
+          //only used if something happened to your family
+          familyStatus : '',
+          //only used if something happened to one or more of your parents
+          parentalStatus: '',
+          //The individual skills of a player
+          skills: [
+          ],
+          //holds stuff like health and other ailments
+          stats: [
+
+          ],
+          //holds all the player gear
+          gear : [
+
+          ]
         },
         //the 4 races that are availible
         races: ['Witcher', 'Elf', 'Human', 'Dwarf'],
+        //The DM will make the determination if genders are to be restricted for some reason
+        //Historically, Witchers are only males
         genders: ['Male', 'Female'],
-        homeland: ['Northern Kingdoms', 'Heart of Nilfgaard', 'Nilfgaardian Vassal', 'Dol Blathanna', 'Mahakam'],
+        //this is the top level lands that the player can roll or select for
+        region: ['Northern Kingdoms', 'Heart of Nilfgaard', 'Nilfgaardian Vassal', 'Dol Blathanna', 'Mahakam'],
+        //individual regions have states within them the player can start in
+        northernLands: [
+          ''
+        ],
 
         //Entire Family Statuses
         northernStatus: [
