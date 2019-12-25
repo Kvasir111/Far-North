@@ -44,13 +44,13 @@
       <div class="block" id="parentalFate">
         <h2>Parental Fate</h2>
         <ul id="northernParentalFate" :key="index" v-for="(fate, index) in northernParentalFate" v-if="character.homeland === 'Northern Kingdoms'">
-          <li><input type="radio" class="m-2 form-radio" v-model="character.parentalStatus">{{fate.text}}</li>
+          <li><input type="radio" class="m-2 form-radio"  name="parentalFate" v-model="character.parentalStatus">{{fate.text}}</li>
         </ul>
         <ul id="nilfgarrdianParentalFate" :key="index" v-for="(fate, index) in nilfgarrdianParentalFate" v-if="character.homeland === 'Heart of Nilfgaard' || character.homeland === 'Nilfgaardian Vassal'">
-          <li><input type="radio" class="m-2 form-radio" v-model="character.parentalStatus">{{fate.text}}</li>
+          <li><input type="radio" class="m-2 form-radio" name="parentalFate" v-model="character.parentalStatus">{{fate.text}}</li>
         </ul>
         <ul id="elderlandParentalFate" :key="index" v-for="(fate, index) in elderlandParentalFate" v-if="character.homeland === 'Dol Blathanna' || character.homeland === 'Mahakam'">
-          <li><input type="radio" class="m-2 form-radio" v-model="character.parentalStatus">{{fate.text}}</li>
+          <li><input type="radio" class="m-2 form-radio" name="parentalFate" v-model="character.parentalStatus">{{fate.text}}</li>
         </ul>
 
       </div>
