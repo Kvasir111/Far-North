@@ -19,6 +19,8 @@
           <li><input class="m-2 form-radio" name="homelandSelection" type="radio" v-bind:value="land" v-model=character.homeland>{{land}}</li>
         </ul>
       </div>
+      <div class="block" id="family and parents roll">
+      </div>
       <div class="block" id="familialFate">
         <h2>Familial Fate</h2>
         <ul :key="index" v-for="(fate, index) in nilfgarrdianStatus" v-if="character.homeland === 'Heart of Nilfgaard' || character.homeland === 'Nilfgaardian Vassal'">
@@ -32,8 +34,9 @@
         </ul>
       </div>
       <div class="block" id="parentalFate">
-        <ul id="northernParentalFate" :key="index" v-for="(fate, index) in northernParentalFate">
-          <li><input type="radio" class="m-2 form-radio" v-model="character.parentalStatus"></li>
+        <h2>Parental Fate</h2>
+        <ul id="northernParentalFate" :key="index" v-for="(fate, index) in northernParentalFate" v-if="character.homeland === 'Northern Kingdoms'">
+          <li><input type="radio" class="m-2 form-radio" v-model="character.parentalStatus">{{fate.text}}</li>
         </ul>
       </div>
     </div>
@@ -200,7 +203,52 @@
           'has made living in the elderland difficult.',
         ],
         northernParentalFate : [
-
+          {roll: 1, text: 'One or more of your parents\n' +
+              'were killed in the Northern\n' +
+              'Wars. Most likely your father, but\n' +
+              'it is also possible that your mother fought or was a casualty'},
+          {roll: 2, text: 'One or more of your parents\n' +
+              'lef you in the wilderness to\n' +
+              'fend for yourself. Maybe they\n' +
+              'couldn’t aﬀord to keep you;\n' +
+              'maybe you were an accident.'},
+          {roll: 3, text: 'One or more of your parents\n' +
+              'were cursed by a mage or due\n' +
+              'to the intense hatred of someone they encountered. Te\n' +
+              'curse took their life.'},
+          {roll: 4, text: 'One or more of your parents\n' +
+              'sold you for coin, or perhaps\n' +
+              'traded you for some goods or\n' +
+              'service. Your parents needed\n' +
+              'the money more than you.'},
+          {roll: 5, text: 'One or more of your parents\n' +
+              'joined a gang. You saw this\n' +
+              'gang ofen and were sometimes\n' +
+              'forced to work with them.'},
+          {roll: 6, text: 'One or more of your parents\n' +
+              'were killed by monsters. It is\n' +
+              'your decision as to what they\n' +
+              'may have fallen prey to'},
+          {roll: 7, text: 'One or more of your parents\n' +
+              'were falsely executed. Tey may\n' +
+              'have been a scapegoat for something or just in the wrong place.'},
+          {roll : 8, text: 'One or more of your parents\n' +
+              'died of a plague. There was\n' +
+              'nothing that could be done but\n' +
+              'try to ease their passing.'},
+          {roll: 9, text: 'One or more of your parents\n' +
+              'defected to Nilfgaard. Tey\n' +
+              'may have been given a deal for\n' +
+              'information or they may just\n' +
+              'have jumped the border.'},
+          {roll : 10, text: 'One or more of your parents\n' +
+              'were kidnapped by nobles.\n' +
+              'Likely it was your mother, who\n' +
+              'attracted the attention of a local\n' +
+              'lord or his son.'}
+        ],
+        nilfgarrdianParentalFate: [
+          {roll: 1, text: }
         ],
 
       }
