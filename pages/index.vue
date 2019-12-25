@@ -7,7 +7,7 @@
         <input class="text-center border-b-2 border-red-700 px-4 py-2" id="characterName" placeholder="Enter Name Here" type="text" v-model="character.name">
         <button type="button" v-on:click="generateName">Generate Name</button>
       </div>
-      <div class="block">
+      <div class="block" id="characterGender">
         <ul :key="index" v-for="(benis, index) in genders">
           <li><input type="radio" class="m-2 form-radio" name="gender" v-model="character.gender">{{benis}}</li>
         </ul>
@@ -46,6 +46,13 @@
         <ul id="northernParentalFate" :key="index" v-for="(fate, index) in northernParentalFate" v-if="character.homeland === 'Northern Kingdoms'">
           <li><input type="radio" class="m-2 form-radio" v-model="character.parentalStatus">{{fate.text}}</li>
         </ul>
+        <ul id="nilfgarrdianParentalFate" :key="index" v-for="(fate, index) in nilfgarrdianParentalFate" v-if="character.homeland === 'Heart of Nilfgaard' || character.homeland === 'Nilfgaardian Vassal'">
+          <li><input type="radio" class="m-2 form-radio" v-model="character.parentalStatus">{{fate.text}}</li>
+        </ul>
+        <ul id="elderlandParentalFate" :key="index" v-for="(fate, index) in elderlandParentalFate" v-if="character.homeland === 'Dol Blathanna' || character.homeland === 'Mahakam'">
+          <li><input type="radio" class="m-2 form-radio" v-model="character.parentalStatus">{{fate.text}}</li>
+        </ul>
+
       </div>
     </div>
   </div>
