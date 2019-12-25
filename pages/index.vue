@@ -1,6 +1,6 @@
 <template>
   <div class="h-screen flex">
-    <div class="bg-white w-full md:w-1/3 lg:w-2/3 p-4 rounded m-auto" id="characterCreationTop">
+    <div class="bg-white w-full rounded-none md:w-2/3 p-4 md:rounded m-auto mt-2" id="characterCreationTop">
       <h1 class="text-center text-xl mb-2">Character Generation</h1>
       <div class="block text-center" id="name">
         <label for="characterName">Character Name Entry</label>
@@ -20,6 +20,9 @@
         </ul>
       </div>
       <div class="block" id="family and parents roll">
+        <h2>Family Fate roll</h2>
+        <button type="button">Roll for Familial Fate</button>
+        <p id="randomNumberOutput"></p>
       </div>
       <div class="block" id="familialFate">
         <h2>Familial Fate</h2>
@@ -292,6 +295,7 @@
               'know where they are now, but\n' +
               'they’re serving the Emperor.'}
         ],
+        elderlandParentalFate : [],
 
       }
     },
