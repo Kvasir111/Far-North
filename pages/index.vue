@@ -251,7 +251,46 @@
           {roll: 1, text: 'Your father died in one of the\n' +
               'Northern Wars. He may have already been in the military or he\n' +
               'may have been conscripted into\n' +
-              'service during that war.'}
+              'service during that war.'},
+          {roll: 2, text: 'One or more of your parents\n' +
+              'were poisoned. Tis may have\n' +
+              'been the work of a professional\n' +
+              'rival, or it may have been to get\n' +
+              'your parents out of the way'},
+          {roll: 3, text: 'The secret police took your\n' +
+              'parent or parents for ‘questioning.’ Te next week their bodies\n' +
+              'were found hung in the streets\n' +
+              'of the city'},
+          {roll: 4, text: 'One or more of your parents\n' +
+              'were killed by a rogue mage.\n' +
+              'Most likely they tried to turn\n' +
+              'the mage in question in to the\n' +
+              'Empire and paid the price'},
+          {roll: 5, text: 'One or more of your parents\n' +
+              'were imprisoned for unlawful\n' +
+              'magic. Maybe they actually\n' +
+              'committed the crime or maybe\n' +
+              'it was a setup'},
+          {roll: 6, text: 'One or more of your parents\n' +
+              'were exiled to the Korath Desert. Likely they committed a\n' +
+              'major crime but killing them\n' +
+              'would cause trouble.'},
+          {roll: 7, text: 'One or more of your parents\n' +
+              'were cursed by a mage. Te\n' +
+              'mage likely had a vendetta\n' +
+              'against them.'},
+          {roll: 8, text: 'Your parents simply lef you\n' +
+              'one day. You may not even\n' +
+              'know why they did it. One day\n' +
+              'your parents just disappeared.'},
+          {roll: 9, text: 'One or more of your parents\n' +
+              'were enslaved. Tey either\n' +
+              'commited a crime against the\n' +
+              'Empire or were set up by a rival.'},
+          {roll: 10, text: 'One or more of your parents\n' +
+              'were sent to the North as double agents. You likely don’t even\n' +
+              'know where they are now, but\n' +
+              'they’re serving the Emperor.'}
         ],
 
       }
