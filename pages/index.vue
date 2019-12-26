@@ -106,7 +106,11 @@
         region: ['Northern Kingdoms', 'Heart of Nilfgaard', 'Nilfgaardian Vassal', 'Dol Blathanna', 'Mahakam'],
         //individual regions have states within them the player can start in
         northernLands: [
-          ''
+          {name: 'Redania', bonus: '+1 Education' },
+          {name: 'Kaedwen', bonus: '+1 Endurance'},
+          {name: 'Temeria', bonus: '+1 Charisma'},
+          {name: 'Aedirn', bonus: '+1 Crafting'},
+          {name:}
         ],
 
         //Entire Family Statuses
