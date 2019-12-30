@@ -52,10 +52,10 @@
           </ul>
         </div>
       </div>
-      <div class="block text-center" id="family and parents roll">
+      <div class="block text-center mb-2" id="family and parents roll">
         <h2>Family or Parental Fate Selection</h2>
         <label for="familyFateSelection">Did something Happen to your Family, or individual Parents?</label>
-        <select id="familyFateSelection" v-model="character.fate">
+        <select id="familyFateSelection"  class="border-b-2 border-red-700 p-2" v-model="character.fate">
           <option disabled>Select Family Fate</option>
           <option>Family</option>
           <option>Individual Parents</option>
