@@ -63,14 +63,14 @@
       </div>
       <div class="block" id="familialFate" v-if="character.fate === 'Family'">
         <h2>Familial Fate</h2>
-        <ul :key="index" v-for="(fate, index) in nilfgaardianStatus" v-if="character.homeland === 'Heart of Nilfgaard' || character.homeland === 'Nilfgaardian Vassal'">
-          <li><input class="m-2 form-radio" name="familial fate" type="radio" v-model="character.familyStatus">{{fate}}</li>
+        <ul :key="index" v-for="(fate, index) in nilfgaardianFamilyFate" v-if="character.homeland === 'Heart of Nilfgaard' || character.homeland === 'Nilfgaardian Vassal'">
+          <li><input class="m-2 form-radio" name="familial fate" type="radio" v-model="character.familyFate">{{fate}}</li>
         </ul>
-        <ul :key="index" v-for="(fate, index) in northernStatus" v-if="character.homeland === 'Northern Kingdoms'">
-          <li><input class="m-2 form-radio" name="familial fate" type="radio" v-model="character.familyStatus">{{fate}}</li>
+        <ul :key="index" v-for="(fate, index) in northernFamilyFate" v-if="character.homeland === 'Northern Kingdoms'">
+          <li><input class="m-2 form-radio" name="familial fate" type="radio" v-model="character.familyFate">{{fate}}</li>
         </ul>
-        <ul :key="index" v-for="(fate, index) in elderlandStatus" v-if="character.homeland === 'Elderlands'">
-          <li><input class="m-2 form-radio" name="familial fate" type="radio" v-model="character.familyStatus">{{fate}}</li>
+        <ul :key="index" v-for="(fate, index) in elderlandFamilyFate" v-if="character.homeland === 'Elderlands'">
+          <li><input class="m-2 form-radio" name="familial fate" type="radio" v-model="character.familyFate">{{fate}}</li>
         </ul>
       </div>
       <div class="block" id="parentalFate" v-if="character.fate === 'Individual Parents'">
@@ -121,7 +121,7 @@
                     //Essentially a boolean for the family or individual parents toggle
                     fate: '',
                     //only used if something happened to your family
-                    familyStatus : '',
+                    familyFate : '',
                     //only used if something happened to one or more of your parents
                     parentalStatus: '',
                     //The individual skills of a player
@@ -178,7 +178,7 @@
 
 
                 //Entire Family Statuses
-                northernStatus: [
+                northernFamilyFate: [
                     'Your family was scattered to the\n' +
                     'winds by the wars and you have\n' +
                     'no idea where most of them\n' +
@@ -224,7 +224,7 @@
                     'get a passing hello from your\n' +
                     'siblings.',
                 ],
-                nilfgaardianStatus : [
+                nilfgaardianFamilyFate : [
                     'Your family was indentured for\n' +
                     'crimes against the Empire or\n' +
                     'on trumped-up charges. Only\n' +
@@ -272,7 +272,7 @@
                     'have been used to get at someone more powerful. Either way,\n' +
                     'your family is gone now',
                 ],
-                elderlandStatus : [
+                elderlandFamilyFate : [
                     'Your family were marked as\n' +
                     'human sympathizers and are\n' +
                     'not particularly loved in their\n' +
@@ -317,6 +317,7 @@
                     'others of the elder races and\n' +
                     'has made living in the elderland difficult.',
                 ],
+
                 //Individual Parental Fates
                 northernParentalFate : [
                     {roll: 1, text: 'One or more of your parents\n' +
@@ -453,6 +454,37 @@
                             'rid of them.'}
                 ],
 
+                //Family Status, basically your social standing
+                northernStatus: [
+                    {state: 'Aristocracy', description: 'You grew up in a noble manor\n' +
+                            'with servants to wait on you,\n' +
+                            'but you were always expected\n' +
+                            'to behave and impress.', startingGear : 'Paper of Nobility (+2 Reputation)',},
+                    {state: 'Adopted by a Mage', description: 'You were given to a mage at a\n' +
+                            'young age. You lived in comfort\n' +
+                            'but barely saw your caretaker,\n' +
+                            'who was always busy.', startingGear : 'A Chronicle (+1 Education)',},
+                    {state: 'Knights', description: 'You grew up in a manor where\n' +
+                            'you learned to be a proper lady\n' +
+                            'or lord. Your fate was set from\n' +
+                            'birth.', startingGear : 'Personal Heraldry (+1 Reputation)',},
+                    {state: 'Merchant Family', description: 'You grew up among merchants\n' +
+                            'and you were always surrounded\n' +
+                            'by yelling, haggling, and\n' +
+                            'money.', startingGear : '2 Acquaintances',},
+                    {state: 'Artisan Family', description: 'You grew up in an artisan’s\n' +
+                            'workshop. Your days were filled\n' +
+                            'with the incessant sounds of\n' +
+                            'creation, and often long.', startingGear : '3 Common Diagrams/Formulae',},
+                    {state: 'Entertainer Family', description: 'You grew up with a band of performers.\n' +
+                            'You may have traveled\n' +
+                            'or you may have performed at\n' +
+                            'a theater.', startingGear : '1 Instrument & 1 Friend',},
+                    {state: 'Peasant Family', description: 'You grew up on a farm in the\n' +
+                            'countryside. You didn’t have\n' +
+                            'much to your name and your\n' +
+                            'life was simple, but dangerous.', startingGear : 'A Lucky Token (+1 Luck)',},
+                ],
             }
         },
         methods: {
