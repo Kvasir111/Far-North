@@ -1,8 +1,8 @@
 <template>
+  <form @submit="createCharacter">
   <div class="h-screen flex">
     <div class="bg-white w-full rounded-none md:w-2/3 p-4 md:rounded m-auto mt-2" id="characterCreationTop">
       <h1 class="text-center text-xl mb-2">Character Generation</h1>
-
       <div class="block" id="race">
         <h2 class="text-center border-b-2 border-red-700">Select Race</h2>
         <ul :key="index" v-for="(race, index) in races">
@@ -97,6 +97,7 @@
       </div>
     </div>
   </div>
+  </form>
 </template>
 
 <script>
@@ -457,7 +458,10 @@
         methods: {
             generateName(){
 
-            }
+            },
+            createCharacter(){
+
+            },
         }
     }
 </script>
