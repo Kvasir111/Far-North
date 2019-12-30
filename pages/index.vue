@@ -102,10 +102,8 @@
 
 <script>
 
-    import Card from "../components/card";
     export default {
         components: {
-            Card
         },
         data : function () {
             return{
