@@ -518,6 +518,36 @@
                             'name but life was simple.', startingGear: 'A Lucky Token (+1 Luck)'},
 
                 ],
+                elderlandStatus: [
+                    {state: 'Aristocracy', description: 'You grew up in a palace and were\n' +
+                            'constantly reminded of the glory\n' +
+                            'of the past. You were expected to\n' +
+                            'live up to the legacy.', startingGear: 'Paper of Nobility (+2 Reputation)'},
+                    {state: 'Noble Warrior', description: 'You grew up as a noble warrior’s\n' +
+                            'child, expected to rise to\n' +
+                            'your family’s reputation and to\n' +
+                            'never dishonor your heritage.', startingGear: 'Personal Heraldry (+1 Reputation)'},
+                    {state: 'Merchants', description: 'You grew up among traveling\n' +
+                            'merchants. Life was difficult\n' +
+                            'sometimes but non-human\n' +
+                            'crafts are always valuable.', startingGear: '2 Acquaintances'},
+                    {state: 'Scribe Family', description: 'You grew up as the child of\n' +
+                            'scribes, recording and protecting\n' +
+                            'as much elderfolk history as\n' +
+                            'possible.', startingGear: 'A Chronicle (+1 Education)'},
+                    {state: 'Entertainers', description: 'You grew up singing songs and\n' +
+                            'performing plays. You worked\n' +
+                            'backstage, helped write songs,\n' +
+                            'and fixed instruments.', startingGear: '1 Instrument & 1 Friend'},
+                    {state: 'Artisan Family', description: 'You grew up in a family of\n' +
+                            'artisans, visiting ancient palaces\n' +
+                            'for inspiration and spending\n' +
+                            'hours every day on projects.', startingGear: '3 Common Diagrams/Formulae'},
+                    {state: 'Lowborn Family', description: 'You grew up in a lowborn family,\n' +
+                            'tending to the manors of\n' +
+                            'others or working small jobs\n' +
+                            'around your home city.', startingGear: 'A Lucky Token (+1 Luck)'},
+                ],
             }
         },
         methods: {
