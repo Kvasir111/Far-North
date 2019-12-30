@@ -2,16 +2,7 @@
   <div class="h-screen flex">
     <div class="bg-white w-full rounded-none md:w-2/3 p-4 md:rounded m-auto mt-2" id="characterCreationTop">
       <h1 class="text-center text-xl mb-2">Character Generation</h1>
-      <div class="block text-center" id="name">
-        <label for="characterName">Character Name Entry</label>
-        <input class="text-center border-b-2 border-red-700 px-4 py-2" id="characterName" placeholder="Enter Name Here" type="text" v-model="character.name">
-        <button type="button" v-on:click="generateName">Generate Name</button>
-      </div>
-      <div class="block" id="characterGender">
-        <ul :key="index" v-for="(benis, index) in genders">
-          <li><input type="radio" class="m-2 form-radio" name="gender" v-model="character.gender">{{benis}}</li>
-        </ul>
-      </div>
+
       <div class="block" id="race">
         <h2 class="text-center border-b-2 border-red-700">Select Race</h2>
         <ul :key="index" v-for="(race, index) in races">
@@ -20,9 +11,19 @@
       </div>
       <div class="block" id="homeland">
         <h2 class="text-center border-b-2 border-red-700">Select Homeland</h2>
+        <h3>Select Region</h3>
         <ul :key="index" v-for="(land, index) in region">
           <li><input class="m-2 form-radio" name="homelandSelection" type="radio" v-bind:value="land" v-model=character.homeland>{{land}}</li>
         </ul>
+        <div id="specificRegion" v-if="character.homeland === 'Northern Kingdoms'">
+        <h2>Select Specific land</h2>
+        <ul :key="index" v-for="(land, index) in northernLands" >
+          <li class="block"><input class="m-2 form-radio" name="region" type="radio" v-model="character.homeRegion">
+            <h4 class="inline">{{land.name}}</h4>
+            <h5 class="inline">{{land.bonus}}</h5>
+          </li>
+        </ul>
+        </div>
       </div>
       <div class="block" id="family and parents roll">
         <h2>Family or Parental Fate Selection</h2>
@@ -56,7 +57,16 @@
         <ul id="elderlandParentalFate" :key="index" v-for="(fate, index) in elderlandParentalFate" v-if="character.homeland === 'Dol Blathanna' || character.homeland === 'Mahakam'">
           <li><input type="radio" class="m-2 form-radio" name="parentalFate" v-model="character.parentalStatus">{{fate.text}}</li>
         </ul>
-
+      </div>
+      <div class="block text-center" id="name">
+        <label for="characterName">Character Name Entry</label>
+        <input class="text-center border-b-2 border-red-700 px-4 py-2" id="characterName" placeholder="Enter Name Here" type="text" v-model="character.name">
+        <button type="button" v-on:click="generateName">Generate Name</button>
+      </div>
+      <div class="block" id="characterGender">
+        <ul :key="index" v-for="(benis, index) in genders">
+          <li><input type="radio" class="m-2 form-radio" name="gender" v-model="character.gender">{{benis}}</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -78,6 +88,7 @@
           gender: '',
           race: '',
           homeland: '',
+            homeRegion: '',
 
           //Essentially a boolean for the family or individual parents toggle
           fate: '',
@@ -110,7 +121,12 @@
           {name: 'Kaedwen', bonus: '+1 Endurance'},
           {name: 'Temeria', bonus: '+1 Charisma'},
           {name: 'Aedirn', bonus: '+1 Crafting'},
-          {name:}
+          {name:'Lyria & Rivia', bonus: '+1 Resist Coercion'},
+            {name: 'Kovir & Poviss', bonus: '+1 Business'},
+            {name: 'Skellige', bonus: '+1 Courage'},
+            {name: 'Cidaris', bonus : '+1 Sailing'},
+            {name: 'Verden', bonus : '+1 Wilderness survival'},
+            {name: 'Cintra', bonus: '+1 Human Perception'}
         ],
 
         //Entire Family Statuses
