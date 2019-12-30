@@ -485,6 +485,39 @@
                             'much to your name and your\n' +
                             'life was simple, but dangerous.', startingGear : 'A Lucky Token (+1 Luck)',},
                 ],
+                nilfgaardianStatus: [
+                    {state: 'Aristocracy', description: 'You grew up in a manor, training\n' +
+                            'to be well-versed in the\n' +
+                            'world of the court. The luxury\n' +
+                            'was just your incentive.', startingGear: 'Paper of Nobility (+2 Reputation)'},
+
+                    {state: 'High Clergy', description: 'You were raised among the clergy\n' +
+                            'of the Great Sun. You grew up pious\n' +
+                            'and always aware that the\n' +
+                            'Church would guide you.', startingGear: 'A Holy Symbol (+1 Courage)'},
+
+                    {state: 'Knights', description: 'You grew up knowing that your\n' +
+                            'duty was to the Emperor, and\n' +
+                            'that all of your luxury was a\n' +
+                            'reward for your eventual service.', startingGear: 'Personal Heraldry (+1 Reputation)'},
+                    {state: 'Artisan Family', description: 'You grew up in an artisan’s\n' +
+                            'shop, learning to craft products\n' +
+                            'for sale around the world. You\n' +
+                            'learned the value of quality.', startingGear: '3 Common Diagrams/Formulae'},
+                    {state: 'Merchant Family', description: 'You grew up selling products\n' +
+                            'all around the Empire. You saw\n' +
+                            'all kinds exotic of goods from\n' +
+                            'all around the world.', startingGear: '2 Acquaintances'},
+                    {state: 'Born into Servitude', description: 'You were born into servitude\n' +
+                            'and lived in simple quarters.\n' +
+                            'You owned very little and toiled\n' +
+                            'often.', startingGear: 'A trained bird or serpent'},
+                    {state: 'Peasant Family', description: 'You grew up on one of the\n' +
+                            'thousands of farms across the\n' +
+                            'Empire. You had little to your\n' +
+                            'name but life was simple.', startingGear: 'A Lucky Token (+1 Luck)'},
+
+                ],
             }
         },
         methods: {
