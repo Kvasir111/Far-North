@@ -34,8 +34,17 @@
           </ul>
         </div>
         <div id="Nilfgaard" v-if="character.homeland === 'Heart of Nilfgaard'">
+        <h2>Select Specific land</h2>
+        <ul :key="index" v-for="(land, index) in nilfgaardLands" >
+          <li class="block"><input class="m-2 form-radio" name="region" type="radio" v-model="character.homeRegion">
+            <h4 class="inline">{{land.name}}  </h4>
+            <h5 class="inline font-light">  {{land.bonus}}</h5>
+          </li>
+        </ul>
+      </div>
+        <div id="elderlandRegion" v-if="character.homeland === 'Elderlands'">
           <h2>Select Specific land</h2>
-          <ul :key="index" v-for="(land, index) in nilfgaardLands" >
+          <ul :key="index" v-for="(land, index) in elderlandLands" >
             <li class="block"><input class="m-2 form-radio" name="region" type="radio" v-model="character.homeRegion">
               <h4 class="inline">{{land.name}}  </h4>
               <h5 class="inline font-light">  {{land.bonus}}</h5>
@@ -43,7 +52,7 @@
           </ul>
         </div>
       </div>
-      <div class="block" id="family and parents roll">
+      <div class="block text-center" id="family and parents roll">
         <h2>Family or Parental Fate Selection</h2>
         <label for="familyFateSelection">Did something Happen to your Family, or individual Parents?</label>
         <select id="familyFateSelection" v-model="character.fate">
@@ -54,13 +63,13 @@
       </div>
       <div class="block" id="familialFate" v-if="character.fate === 'Family'">
         <h2>Familial Fate</h2>
-        <ul :key="index" v-for="(fate, index) in nilfgarrdianStatus" v-if="character.homeland === 'Heart of Nilfgaard' || character.homeland === 'Nilfgaardian Vassal'">
+        <ul :key="index" v-for="(fate, index) in nilfgaardianStatus" v-if="character.homeland === 'Heart of Nilfgaard' || character.homeland === 'Nilfgaardian Vassal'">
           <li><input class="m-2 form-radio" name="familial fate" type="radio" v-model="character.familyStatus">{{fate}}</li>
         </ul>
         <ul :key="index" v-for="(fate, index) in northernStatus" v-if="character.homeland === 'Northern Kingdoms'">
           <li><input class="m-2 form-radio" name="familial fate" type="radio" v-model="character.familyStatus">{{fate}}</li>
         </ul>
-        <ul :key="index" v-for="(fate, index) in elderlandStatus" v-if="character.homeland === 'Dol Blathanna' || character.homeland === 'Mahakam'">
+        <ul :key="index" v-for="(fate, index) in elderlandStatus" v-if="character.homeland === 'Elderlands'">
           <li><input class="m-2 form-radio" name="familial fate" type="radio" v-model="character.familyStatus">{{fate}}</li>
         </ul>
       </div>
@@ -69,7 +78,7 @@
         <ul :key="index" id="northernParentalFate" v-for="(fate, index) in northernParentalFate" v-if="character.homeland === 'Northern Kingdoms'">
           <li><input class="m-2 form-radio" name="parentalFate"  type="radio" v-model="character.parentalStatus">{{fate.text}}</li>
         </ul>
-        <ul :key="index" id="nilfgarrdianParentalFate" v-for="(fate, index) in nilfgarrdianParentalFate" v-if="character.homeland === 'Heart of Nilfgaard' || character.homeland === 'Nilfgaardian Vassal'">
+        <ul :key="index" id="nilfgarrdianParentalFate" v-for="(fate, index) in nilfgaardianParentalFate" v-if="character.homeland === 'Heart of Nilfgaard' || character.homeland === 'Nilfgaardian Vassal'">
           <li><input class="m-2 form-radio" name="parentalFate" type="radio" v-model="character.parentalStatus">{{fate.text}}</li>
         </ul>
         <ul :key="index" id="elderlandParentalFate" v-for="(fate, index) in elderlandParentalFate" v-if="character.homeland === 'Dol Blathanna' || character.homeland === 'Mahakam'">
@@ -126,13 +135,13 @@
 
                     ]
                 },
-                //the 4 races that are availible
+                //the 4 races that are available
                 races: ['Witcher', 'Elf', 'Human', 'Dwarf'],
                 //The DM will make the determination if genders are to be restricted for some reason
                 //Historically, Witchers are only males
                 genders: ['Male', 'Female'],
                 //this is the top level lands that the player can roll or select for
-                region: ['Northern Kingdoms', 'Heart of Nilfgaard', 'Nilfgaardian Vassal', 'Dol Blathanna', 'Mahakam'],
+                region: ['Northern Kingdoms', 'Heart of Nilfgaard', 'Nilfgaardian Vassal', 'Elderlands'],
                 //individual regions have states within them the player can start in
                 northernLands: [
                     {name: 'Redania', bonus: '+1 Education' },
@@ -160,6 +169,10 @@
                 ],
                 nilfgaardLands:[
                     {name: 'Heart of Nilfgaard', bonus: '+1 Deceit'}
+                ],
+                elderlandLands: [
+                    {name: 'Dol Blathanna', bonus: '+1 Social Etiquette'},
+                    {name: 'Mahakam', bonus: '+1 Crafting'}
                 ],
 
 
@@ -210,7 +223,7 @@
                     'get a passing hello from your\n' +
                     'siblings.',
                 ],
-                nilfgarrdianStatus : [
+                nilfgaardianStatus : [
                     'Your family was indentured for\n' +
                     'crimes against the Empire or\n' +
                     'on trumped-up charges. Only\n' +
@@ -349,7 +362,7 @@
                             'attracted the attention of a local\n' +
                             'lord or his son.'}
                 ],
-                nilfgarrdianParentalFate: [
+                nilfgaardianParentalFate: [
                     {roll: 1, text: 'Your father died in one of the\n' +
                             'Northern Wars. He may have already been in the military or he\n' +
                             'may have been conscripted into\n' +
