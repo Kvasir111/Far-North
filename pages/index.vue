@@ -143,8 +143,8 @@
                   derivedStats :[
                     {stat: 'Vigor', value: 0},
                     {stat: 'Stun', value: 0},
-                    {stat: 'Run', value: this.character.stats.speed.value/3}, //the run stat is derived from the speed stat
-                    {stat: 'Leap', value: this.character.derivedStats.run.value/3},
+                    {stat: 'Run', value: 0}, //the run stat is derived from the speed stat
+                    {stat: 'Leap', value: 0},
                   ],
 
                     //holds all the player gear
