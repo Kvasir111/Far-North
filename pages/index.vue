@@ -129,8 +129,24 @@
                     ],
                     //holds stuff like health and other ailments
                     stats: [
-
+                      {stat: 'Intelligence', value: 0},
+                      {stat: 'Reflexes', value: 0},
+                      {stat: 'Dexterity', value: 0},
+                      {stat: 'Body', value: 0},
+                      {stat: 'Speed', value: 0},
+                      {stat: 'Empathy', value: 0},
+                      {stat: 'Craft', value: 0},
+                      {stat: 'Will', value: 0},
+                      {stat: 'Luck', value: 0},
                     ],
+                  //these are specific stats that are derived from the above stats
+                  derivedStats :[
+                    {stat: 'Vigor', value: 0},
+                    {stat: 'Stun', value: 0},
+                    {stat: 'Run', value: this.character.stats.speed.value/3}, //the run stat is derived from the speed stat
+                    {stat: 'Leap', value: this.character.derivedStats.run.value/3},
+                  ],
+
                     //holds all the player gear
                     gear : [
 
