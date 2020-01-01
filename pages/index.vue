@@ -98,14 +98,19 @@
       </div>
     </div>
     </div>
+    <div>
+      <stats-display v-bind:character-stats="character" />
+    </div>
   </div>
   </form>
 </template>
 
 <script>
 
+    import StatsDisplay from '../components/statsDisplay'
     export default {
         components: {
+          StatsDisplay
         },
         data : function () {
             return{
@@ -145,6 +150,11 @@
                     {stat: 'Stun', value: 0},
                     {stat: 'Run', value: 0}, //the run stat is derived from the speed stat
                     {stat: 'Leap', value: 0},
+                    {stat: 'Hit Points', value: 0},
+                    {stat: 'Stamina', value: 0},
+                    {stat: 'Encumbrance', value: 0},
+                    {stat: 'Recovery', value: 0},
+                    {stat: 'Punch & Kick', value: 0},
                   ],
 
                     //holds all the player gear
