@@ -1,7 +1,8 @@
 <template>
   <form @submit="createCharacter">
-  <div class="h-screen flex">
-    <div class="bg-white w-full rounded-none md:w-2/3 p-4 md:rounded m-auto mt-2" id="characterCreationTop">
+  <div class="h-screen flex bg-white sm:bg-transparent">
+    <div class="m-auto">
+    <div class="sm:bg-white w-full rounded-none md:w-2/3 p-4 md:rounded mx-auto" id="characterCreationTop">
       <h1 class="text-center text-xl mb-2">Character Generation</h1>
       <div class="block" id="race">
         <h2 class="text-center border-b-2 border-red-700">Select Race</h2>
@@ -95,6 +96,7 @@
           <li><input class="m-2 form-radio" name="gender" type="radio" v-model="character.gender">{{benis}}</li>
         </ul>
       </div>
+    </div>
     </div>
   </div>
   </form>
