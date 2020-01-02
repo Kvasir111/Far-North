@@ -10,6 +10,9 @@
           <li><input class="form-radio m-2" name="raceSelection" type="radio" v-model="character.race">{{race}}</li>
         </ul>
       </div>
+      <div class="block" id="class">
+
+      </div>
       <div class="block" id="homeland">
         <h2 class="text-center border-b-2 border-red-700">Select Homeland</h2>
         <h3>Select Region</h3>
@@ -88,7 +91,7 @@
       </div>
       <div class="block text-center" id="name">
         <label for="characterName">Character Name Entry</label>
-        <input class="text-center border-b-2 border-red-700 px-4 py-2" id="characterName" placeholder="Enter Name Here" type="text" v-model="character.name">
+        <input class="text-center border-b-2 border-red-700 px-4 py-2" id="characterName" placeholder="Enter Name Here" type="text" v-model="character.name" v-on:input="">
         <button type="button" v-on:click="generateName">Generate Name</button>
       </div>
       <div class="block" id="characterGender">
@@ -106,6 +109,7 @@
 <script>
 
     import StatsDisplay from '../components/statsDisplay'
+    import {character} from 'vuex'
     export default {
         components: {
           StatsDisplay
@@ -162,6 +166,15 @@
                 },
                 //the 4 races that are available
                 races: ['Witcher', 'Elf', 'Human', 'Dwarf'],
+                classes: [
+                    {name: 'Bard',
+                        definingSkill: 'Busking',
+                        vigor: 0,
+                        magicalPerks: [],
+                        skills: ['Charisma', 'Deceit', 'Performance', 'Language (Choose 1)', 'Human Perception', 'Persuasion', 'Streetwise', 'Fine Arts', 'Seduction', 'Social Etiquette'],
+                        gear: [],
+                    }
+                ],
                 //The DM will make the determination if genders are to be restricted for some reason
                 //Historically, Witchers are only males
                 genders: ['Male', 'Female'],
