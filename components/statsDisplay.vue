@@ -1,9 +1,9 @@
 <template>
-	<div class="bg-white  mx-auto float-left rounded-tl rounded-bl p-2">
+	<div class="bg-transparent text-text-black sm:bg-white rounded-tl rounded-bl p-2">
     <ul :key="index" v-for="(stat, index) in characterStats.stats">
       <li>
-        <h2>{{stat.stat}}</h2>
-        <h3>{{stat.value}}</h3>
+        <h3 class="inline border-b-2 border-red-700">{{stat.stat}}</h3>
+        <h3 class=" flex inline font-light text-right">{{stat.value}}</h3>
       </li>
     </ul>
   </div>

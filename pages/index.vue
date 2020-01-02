@@ -79,7 +79,7 @@
         <ul :key="index" id="northernParentalFate" v-for="(fate, index) in northernParentalFate" v-if="character.homeland === 'Northern Kingdoms'">
           <li><input class="m-2 form-radio" name="parentalFate"  type="radio" v-model="character.parentalStatus">{{fate.text}}</li>
         </ul>
-        <ul :key="index" id="nilfgarrdianParentalFate" v-for="(fate, index) in nilfgaardianParentalFate" v-if="character.homeland === 'Heart of Nilfgaard' || character.homeland === 'Nilfgaardian Vassal'">
+        <ul :key="index" id="nilfgaardianParentalFate" v-for="(fate, index) in nilfgaardianParentalFate" v-if="character.homeland === 'Heart of Nilfgaard' || character.homeland === 'Nilfgaardian Vassal'">
           <li><input class="m-2 form-radio" name="parentalFate" type="radio" v-model="character.parentalStatus">{{fate.text}}</li>
         </ul>
         <ul :key="index" id="elderlandParentalFate" v-for="(fate, index) in elderlandParentalFate" v-if="character.homeland === 'Dol Blathanna' || character.homeland === 'Mahakam'">
@@ -98,9 +98,7 @@
       </div>
     </div>
     </div>
-    <div>
-      <stats-display v-bind:character-stats="character" />
-    </div>
+    <stats-display class="my-auto" v-bind:character-stats="character" />
   </div>
   </form>
 </template>
