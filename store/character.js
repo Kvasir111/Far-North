@@ -1,3 +1,9 @@
 export const state = () => ({
-  character: {}
+  name: 'Ryan'
 })
+
+export const mutations = {
+  setName(state, text){
+    state.character.name = text;
+  }
+}
